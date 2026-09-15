@@ -90,7 +90,7 @@ export function CognitiveReport({ report }: { report: AssessmentReport }) {
 
       <p className="text-center text-xs text-sky-700/70">
         Completed {new Date(report.completedAt).toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" })}
-        . Individual questions and answers are never shown, during or after the assessment.
+        ©2026 Cognitiv. All rights reserved.
       </p>
     </div>
   );
