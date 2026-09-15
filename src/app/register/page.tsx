@@ -50,7 +50,7 @@ export default function RegisterPage() {
       <div className="glass-panel-strong w-full p-8">
         <h1 className="text-center text-2xl font-bold text-sky-900">Create your account</h1>
         <p className="mt-2 text-center text-sm text-sky-700">
-          No email required — just a username and password you can remember.
+          No email required gng just a username and password you can remember
         </p>
 
         <form onSubmit={handleSubmit} className="mt-6 flex flex-col gap-4">
