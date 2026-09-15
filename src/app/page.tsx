@@ -27,13 +27,13 @@ export default function HomePage() {
     <div className="mx-auto max-w-6xl px-4 pb-24 pt-12 sm:pt-20">
       <section className="flex flex-col items-center text-center">
         <div className="glass-panel mb-8 inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold uppercase tracking-widest text-sky-700">
-          <span className="h-2 w-2 rounded-full bg-aero-leaf" /> A clear-sky cognitive challenge
+          <span className="h-2 w-2 rounded-full bg-aero-leaf" /> A cognitive challenge
         </div>
 
         <h1 className="text-glow text-5xl font-extrabold tracking-tight text-sky-900 sm:text-7xl">
           COGNITIVE
         </h1>
-        <p className="mt-4 text-xl font-medium text-sky-800 sm:text-2xl">How sharp is your mind?</p>
+        <p className="mt-4 text-xl font-medium text-sky-800 sm:text-2xl">How sharp is your mind gng?</p>
         <p className="mt-2 text-sm font-semibold uppercase tracking-widest text-sky-600">
           30 challenges · 6 cognitive domains
         </p>
@@ -43,7 +43,7 @@ export default function HomePage() {
         </Link>
 
         <p className="mt-4 max-w-md text-xs text-sky-700/80">
-          No email required — just create a username and password you can remember.
+          No email required gng just create a username and password you can remember
         </p>
       </section>
 
@@ -60,13 +60,13 @@ export default function HomePage() {
         <h2 className="text-lg font-bold text-sky-900">What to expect</h2>
         <p className="mt-3 text-sm leading-relaxed text-sky-800">
           COGNITIVE measures performance across six cognitive domains through five rounds of
-          increasing difficulty — 30 questions in total. Each question is timed individually with
-          no overall countdown, so you can focus on getting it right. You get exactly one attempt,
-          and your result is saved permanently to the leaderboards.
+          increasing difficulty  30 questions in total Each question is timed individually with
+          no overall countdown so you can focus on getting it right You get exactly one attempt
+          and your result is saved permanently to the leaderboards
         </p>
         <p className="mt-4 text-xs text-sky-700/70">
-          COGNITIVE is an IQ-style cognitive test. Scores are designed for entertainment and
-          self-comparison and are not equivalent to a standardized clinical or professional IQ test.
+          COGNITIVE is an IQ style cognitive test. Scores are designed for entertainment and
+          self comparison and are not equivalent to a standardized clinical or professional IQ test
         </p>
       </section>
 
