@@ -18,8 +18,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <NavBar />
           <main className="flex-1">{children}</main>
           <footer className="mx-auto w-full max-w-6xl px-4 py-8 text-center text-xs text-sky-800/70">
-            COGNITIVE is an IQ style cognitive test. Scores are designed for entertainment and
-            self comparison and are not equivalent to a standardized clinical or professional IQ test
+            ©2026 Cognitive. All rights reserved.
           </footer>
         </div>
       </body>
