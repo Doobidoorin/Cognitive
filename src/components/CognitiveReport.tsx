@@ -25,8 +25,7 @@ export function CognitiveReport({ report }: { report: AssessmentReport }) {
           </div>
         </div>
         <p className="mt-6 text-center text-xs text-sky-700/70">
-          Type of Smart is a fun interpretation of your strongest results — not a scientifically
-          established personality or intelligence classification.
+          Type of Smart is a fun interpretation of your strongest results
         </p>
       </div>
 
