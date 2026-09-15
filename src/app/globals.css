@@ -1,0 +1,177 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --aero-sky-top: #bfe9ff;
+  --aero-sky-bottom: #eafcf6;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: linear-gradient(180deg, var(--aero-sky-top) 0%, var(--aero-sky-bottom) 60%, #d9f7e8 100%);
+  overflow-x: hidden;
+}
+
+/* ---------- Glass panel system ---------- */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  box-shadow:
+    0 8px 32px rgba(31, 84, 130, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  border-radius: 1.5rem;
+}
+
+.glass-panel-strong {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow:
+    0 12px 40px rgba(31, 84, 130, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  border-radius: 1.5rem;
+}
+
+/* ---------- Glossy buttons ---------- */
+.btn-glossy {
+  position: relative;
+  border-radius: 999px;
+  padding: 0.85rem 2rem;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(180deg, #6fd7ff 0%, #1596e0 60%, #0c74b3 100%);
+  box-shadow:
+    0 6px 18px rgba(10, 100, 160, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6),
+    inset 0 -6px 10px rgba(0, 60, 100, 0.2);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+}
+.btn-glossy::after {
+  content: "";
+  position: absolute;
+  inset: 2px 2px auto 2px;
+  height: 40%;
+  border-radius: 999px 999px 50% 50% / 999px 999px 100% 100%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0));
+  pointer-events: none;
+}
+.btn-glossy:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+  box-shadow:
+    0 10px 24px rgba(10, 100, 160, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7),
+    inset 0 -6px 10px rgba(0, 60, 100, 0.22);
+}
+.btn-glossy:active {
+  transform: translateY(0px) scale(0.98);
+}
+.btn-glossy:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-secondary {
+  border-radius: 999px;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  color: #0c4a6e;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 4px 14px rgba(31, 84, 130, 0.12);
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.85);
+  transform: translateY(-1px);
+}
+
+.btn-danger {
+  border-radius: 999px;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(180deg, #ff9a8f 0%, #e0503f 100%);
+  box-shadow: 0 6px 16px rgba(200, 60, 40, 0.35);
+}
+
+/* ---------- Inputs ---------- */
+.input-aero {
+  width: 100%;
+  border-radius: 1rem;
+  padding: 0.85rem 1.1rem;
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: inset 0 2px 6px rgba(12, 74, 110, 0.08);
+  outline: none;
+  transition: box-shadow 0.15s ease, border-color 0.15s ease;
+}
+.input-aero:focus {
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.35);
+}
+
+/* ---------- Choice buttons in the assessment ---------- */
+.choice-btn {
+  width: 100%;
+  text-align: left;
+  border-radius: 1.1rem;
+  padding: 1rem 1.25rem;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1.5px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 4px 14px rgba(31, 84, 130, 0.1);
+  transition: transform 0.12s ease, background 0.12s ease, border-color 0.12s ease;
+  user-select: none;
+}
+.choice-btn:hover {
+  background: rgba(255, 255, 255, 0.8);
+  transform: translateY(-1px);
+}
+.choice-btn.selected {
+  background: linear-gradient(180deg, #d6f3ff, #b7e8ff);
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.3), 0 4px 14px rgba(31, 84, 130, 0.15);
+}
+.choice-btn:disabled {
+  cursor: not-allowed;
+}
+
+/* ---------- Floating decorative bubbles ---------- */
+.bubble {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.9), rgba(180, 235, 255, 0.25) 70%);
+  filter: blur(0.5px);
+  box-shadow: 0 0 24px rgba(255, 255, 255, 0.5);
+}
+
+.text-glow {
+  text-shadow: 0 0 24px rgba(56, 189, 248, 0.5);
+}
+
+.shimmer-bar {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.2) 25%,
+    rgba(255, 255, 255, 0.7) 50%,
+    rgba(255, 255, 255, 0.2) 75%
+  );
+  background-size: 200% 100%;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+  background: rgba(56, 189, 248, 0.35);
+}

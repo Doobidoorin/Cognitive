@@ -1,0 +1,61 @@
+// COGNITIVE — Prisma schema
+// SQLite by default for easy local/dev use. Swap `provider`/`url` to
+// "postgresql" + a DATABASE_URL for production (Vercel Postgres, Railway,
+// Supabase, Render, etc). The rest of the app is provider-agnostic.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String   @id @default(cuid())
+  username     String   @unique
+  passwordHash String
+  pfp          String?  // small data-URL / emoji key / uploaded asset path
+  createdAt    DateTime @default(now())
+
+  result       AssessmentResult?
+
+  @@index([username])
+}
+
+// One row per user, enforced at the DB level via the unique userId.
+// This is the server-side source of truth for "has this user already
+// taken the assessment" — the frontend is never trusted for that.
+model AssessmentResult {
+  id                       String   @id @default(cuid())
+  userId                   String   @unique
+  user                     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  overallScore             Float
+  classification           String
+  title                    String
+  typeOfSmart              String
+
+  domainScores             String   // JSON: Record<DomainKey, number>          (0-100 scaled domain score)
+  domainPercentages        String   // JSON: Record<DomainKey, number>          (% correct per domain)
+  domainRawCorrect         String   // JSON: Record<DomainKey, number>          (# correct per domain, out of 5)
+
+  overallAccuracy          Float
+  avgResponseTimeMs        Float
+  fastestResponseMs        Float
+  slowestResponseMs        Float
+
+  performanceByDifficulty  String   // JSON: Record<Difficulty, {correct:number,total:number,avgTimeMs:number}>
+
+  // Raw per-question answers, kept strictly server-side. Never sent back
+  // to any client in full — only aggregates derived from this are exposed.
+  rawAnswers               String   // JSON: Array<{questionId:number, choiceIndex:number, timeMs:number, correct:boolean}>
+
+  tabSwitchCount           Int      @default(0)
+  suspiciousActivityNote   String?
+
+  completedAt              DateTime @default(now())
+
+  @@index([overallScore])
+}
